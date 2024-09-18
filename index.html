@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento HTML5 Básico</title>
+</head>
+<body>
+
+</body>
+
+  <script>
+    const AS_URL_BASE = "";
+
+    var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
+
+    if(k){
+      fetch(AS_URL_BASE+'?k='+k).then(r=> r.text()).then((r) => {
+        console.log(r);
+        if(r){
+          document.location.replace(r);
+        }
+      })
+      .catch(err => console.log(err))
+    }
+    
+  </script>
+</html>
